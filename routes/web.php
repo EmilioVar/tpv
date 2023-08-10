@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $groups = App\Models\Group::all();
+    $products = App\Models\Product::all();
+
+    return view('welcome', compact('groups', 'products'));
 });

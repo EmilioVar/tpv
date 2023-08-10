@@ -10,11 +10,13 @@
         </div>
         <!-- groups -->
         <div id="groups" class="bg-green-400">
-            <h1 class="text-3xl">groups</h1>
+            <h1 class="text-3xl pb-3">groups</h1>
+            <livewire:groups.group-selector :groups="$groups"/>
         </div>
-        <!-- items -->
-        <div id="items" class="bg-orange-400">
-            <h1 class="text-3xl">items</h1>
+        <!-- products -->
+        <div id="products" class="bg-orange-400">
+            <h1 class="text-3xl">products</h1>
+            <livewire:products.product-selector :products="$products"/>
         </div>
     </div>
 </x-layout>
