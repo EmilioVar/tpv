@@ -9,6 +9,9 @@
     @livewireStyles
 </head>
 <body>
+    <nav class="h-11 flex justify-center items-center">
+        <p class="text-xl bg-blue-200 py-1 px-2 rounded-xl">navbar</p>
+    </nav>
     {{ $slot }}
     @livewireScripts
 </body>
