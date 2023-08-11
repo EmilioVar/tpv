@@ -1,22 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-#items-screen {
-    height: calc(50vh - 2.75rem);
-    width: 70vw;
-}
-#keyboard {
-    height: calc(50vh - 2.75rem);
-    width: 30vw;
-}
-
-#groups {
-    height: 50vh;
-    width: 50vw;
-}
-
-#products {
-    height: 50vh;
-    width: 50vw;
-}
