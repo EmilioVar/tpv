@@ -3,12 +3,11 @@
 @tailwind utilities;
 
 #items-screen {
-    height: calc(50vh - 2.5rem);
+    height: calc(50vh - 2.75rem);
     width: 70vw;
 }
-
 #keyboard {
-    height: calc(50vh - 2.5rem);
+    height: calc(50vh - 2.75rem);
     width: 30vw;
 }
 
