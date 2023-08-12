@@ -3,6 +3,7 @@
         <!-- items count -->
         <div id="items-screen" class="bg-red-400 h-[calc(50vh-2.75rem)] col-span-4">
             <h1 class="">pantalla</h1>
+            <livewire:products.list-tpv/>
         </div>
         <!-- keyboard -->
         <div id="keyboard" class="bg-blue-400 h-[calc(50vh-2.75rem)] col-span-2">
