@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $groups = App\Models\Group::all();
     $products = App\Models\Product::all();
+    $productsTpv = App\Models\Table::find(1)->products;
 
-    return view('welcome', compact('groups', 'products'));
+    return view('welcome', compact('groups', 'products','productsTpv'));
 });

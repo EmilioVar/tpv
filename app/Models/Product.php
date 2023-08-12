@@ -11,6 +11,8 @@ class Product extends Model
     use HasFactory;
 
     public function tables(): BelongsToMany {
-        return $this->belongsToMany(Product::class, 'tables_products');
+        return $this->belongsToMany(Product::class, 'tables_products')
+                    ->withPivot('quantity')
+                    ->withTimestamps();
     }
 }

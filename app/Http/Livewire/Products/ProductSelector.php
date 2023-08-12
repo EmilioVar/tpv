@@ -17,8 +17,22 @@ class ProductSelector extends Component
         $this->products = Product::where('group_id', $groupId)->get();
     }
 
-    public function productSelected($productId) {
-        Table::find(1)->products()->attach($productId);
+    public function productSelected($productId)
+    {
+        $table = Table::find(1);
+        
+        $existingProduct = $table
+            ->products()
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($existingProduct) {
+            $existingProduct->pivot->increment('quantity');
+        } else {
+            $table->products()->attach($productId, ['quantity' => 1]);
+        }
+
+        $this->emit('productSelect');
     }
 
     public function render()
