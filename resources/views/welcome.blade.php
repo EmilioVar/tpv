@@ -1,9 +1,8 @@
 <x-layout>
     <div id="pos-system" class="container-full grid grid-cols-6">
         <!-- items count -->
-        <div id="items-screen" class="bg-red-400 h-[calc(50vh-2.75rem)] overflow-y-auto col-span-4">
-            <h1 class="">pantalla</h1>
-            <livewire:products.list-tpv :productsTpv="$productsTpv"/>
+        <div id="items-screen" class="bg-red-400 h-[calc(50vh-2.75rem)] overflow-y-scroll col-span-4">
+            <livewire:products.list-tpv :productsTpv="$productsTpv" />
         </div>
         <!-- keyboard -->
         <div id="keyboard" class="bg-blue-400 h-[calc(50vh-2.75rem)] col-span-2">
@@ -25,7 +24,10 @@
             console.log("si")
             const productListContainer = document.getElementById('items-screen');
             const lastProduct = productListContainer.lastElementChild;
-            lastProduct.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            lastProduct.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            });
         });
     </script>
 </x-layout>
