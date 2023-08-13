@@ -11,8 +11,28 @@ class ListTpv extends Component
 
     protected $listeners = ['productSelect' => 'updateProductsInTable'];
 
-    public function updateProductsInTable() 
+    public function updateProductsInTable()
     {
+        $this->productsTpv = Table::find(1)->products;
+    }
+
+    public function productIncrement($productId)
+    {
+        Table::find(1)
+            ->products()
+            ->where('product_id', $productId)
+            ->first()
+            ->pivot->increment('quantity');
+        $this->productsTpv = Table::find(1)->products;
+    }
+
+    public function productDecrement($productId)
+    {
+        Table::find(1)
+            ->products()
+            ->where('product_id', $productId)
+            ->first()
+            ->pivot->decrement('quantity');
         $this->productsTpv = Table::find(1)->products;
     }
 

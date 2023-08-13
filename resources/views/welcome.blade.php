@@ -1,7 +1,7 @@
 <x-layout>
     <div id="pos-system" class="container-full grid grid-cols-6">
         <!-- items count -->
-        <div id="items-screen" class="bg-red-400 h-[calc(50vh-2.75rem)] overflow-y-scroll col-span-4">
+        <div id="items-screen" class="bg-gray-50 h-[calc(50vh-2.75rem)] overflow-y-scroll col-span-4">
             <livewire:products.list-tpv :productsTpv="$productsTpv" />
         </div>
         <!-- keyboard -->
