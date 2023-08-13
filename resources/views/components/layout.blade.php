@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="h-11 flex justify-center items-center bg-gray-500">
-        <p class="text-xl bg-blue-200 py-1 px-2 rounded-xl">navbar</p>
+        <p class="text-xl bg-blue-200 py-1 px-2 rounded-xl">navbar. Mesa: <livewire:display-table-selected /></p>
     </nav>
     {{ $slot }}
     @livewireScripts

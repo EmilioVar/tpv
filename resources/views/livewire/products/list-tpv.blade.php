@@ -13,6 +13,9 @@
             <th scope="col" class="px-6 py-3">
                 Cantidad
             </th>
+            <th scope="col" class="px-6 py-3">
+                Acciones
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -22,15 +25,19 @@
                     {{ $productTpv->id }}
                 </th>
                 <td class="px-6 py-4">
-                    <input type="text" value="{{ $productTpv->name }}">
+                    <input type="text" class="rounded-md" value="{{ $productTpv->name }}">
                 </td>
                 <td class="px-6 py-4">
-                    <input step="0.5" type="number" value="{{ $productTpv->price }}">
+                    <input class="w-1/3 rounded-md" step="0.5" type="number" value="{{ $productTpv->price }}">
+                </td>
+                <td class="px-6 py-4">
+                    <input type="number" class="w-1/3 rounded-md" value="{{ $productTpv->pivot->quantity }}">
+
                 </td>
                 <td class="px-6 py-4 flex">
-                    <input type="number" value="{{ $productTpv->pivot->quantity }}">
-                    <button wire:click="productIncrement({{ $productTpv->id }})" class="border-2 flex items-center justify-center ml-2 w-7 h-7 text-xl bg-green-200">+</button>
-                    <button wire:click="productDecrement({{ $productTpv->id }})" class="border-2 flex items-center justify-center ml-2 w-7 h-7 text-xl bg-red-200">-</button>
+                    <button wire:click="productIncrement({{ $productTpv->id }})" class="border-2 flex items-center justify-center m-1 w-7 h-7 text-xl bg-green-200">+</button>
+                    <button wire:click="productDecrement({{ $productTpv->id }})" class="border-2 flex items-center justify-center m-1 w-7 h-7 text-xl bg-red-200">-</button>
+                    <button wire:click="productRemove({{ $productTpv->id }})" class="border-2 flex items-center justify-center m-1 w-7 h-7 text-xl bg-red-500">el</button>
                 </td>
             </tr>
         @endforeach

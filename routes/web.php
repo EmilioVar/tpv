@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Table;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $groups = App\Models\Group::all();
     $products = App\Models\Product::all();
-    $productsTpv = App\Models\Table::find(1)->products;
+    $productsTpv = App\Models\Table::find(session('tableSelected'))->products ?? [];
+    $tables = Table::all();
 
-    return view('welcome', compact('groups', 'products','productsTpv'));
+    return view('welcome', compact('groups', 'products','productsTpv', 'tables'));
 });

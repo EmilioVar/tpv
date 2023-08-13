@@ -9,31 +9,51 @@ class ListTpv extends Component
 {
     public $productsTpv;
 
-    protected $listeners = ['productSelect' => 'updateProductsInTable'];
+    protected $listeners = ['productSelect' => 'updateProductsInTable', 'tableSelected' => 'updateProductsInTable'];
 
     public function updateProductsInTable()
     {
-        $this->productsTpv = Table::find(1)->products;
+        $this->productsTpv = Table::find(session('tableSelected'))->products;
     }
 
     public function productIncrement($productId)
     {
-        Table::find(1)
+        Table::find(session('tableSelected'))
             ->products()
             ->where('product_id', $productId)
             ->first()
             ->pivot->increment('quantity');
-        $this->productsTpv = Table::find(1)->products;
+
+        $this->productsTpv = Table::find(session('tableSelected'))->products;
     }
 
     public function productDecrement($productId)
     {
-        Table::find(1)
-            ->products()
-            ->where('product_id', $productId)
-            ->first()
-            ->pivot->decrement('quantity');
-        $this->productsTpv = Table::find(1)->products;
+        $product = Table::find(session('tableSelected'))
+        ->products()
+        ->where('product_id', $productId)
+        ->first();
+        
+        $quantity = $product->pivot->quantity;
+
+        if($quantity == 1) {
+            $product->tables()->detach($productId);
+        } else {
+            $product->pivot->decrement('quantity');
+        }
+        
+        $this->productsTpv = Table::find(session('tableSelected'))->products;
+    }
+
+    public function productRemove($productId) {
+        $product = Table::find(session('tableSelected'))
+        ->products()
+        ->where('product_id', $productId)
+        ->first();
+
+        $product->tables()->detach($productId);
+
+        $this->productsTpv = Table::find(session('tableSelected'))->products;
     }
 
     public function render()

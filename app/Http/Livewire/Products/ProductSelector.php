@@ -19,7 +19,7 @@ class ProductSelector extends Component
 
     public function productSelected($productId)
     {
-        $table = Table::find(1);
+        $table = Table::find(session('tableSelected'));
         
         $existingProduct = $table
             ->products()
