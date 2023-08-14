@@ -84,10 +84,23 @@
 
         let keyboardButtons = document.querySelectorAll('.btnKeyboard');
 
-        keyboardButtons.forEach((el,i) => {
-            el.addEventListener('click', function () {
-            Livewire.emit('eventoDesdeJS',el.innerHTML);
-    });
-        }) 
+        keyboardButtons.forEach((el, i) => {
+            el.addEventListener('click', function() {
+                Livewire.emit('eventoDesdeJS', el.innerHTML);
+            });
+        })
+
+        let rowItems = document.querySelectorAll('.rowItem');
+
+        rowItems.forEach(row => {
+            row.addEventListener('click', () => {
+                rowItems.forEach(r => r.classList.remove('selected-row'));
+                row.classList.add('selected-row');
+                let rowSelected = document.querySelector('.selected-row')
+            });
+        });
+
+        
+
     </script>
 </x-layout>
