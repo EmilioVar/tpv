@@ -83,12 +83,13 @@
         });
 
     document.addEventListener('livewire:load', function () {
-        let productsRows = document.querySelectorAll('tr td .quantity')
-        productsRows.forEach((el,index) => {
+        let productsRowsId = document.querySelectorAll('tr th[id]')
+        let productsRowsQuantity = document.querySelectorAll('tr td .quantity');
+        productsRowsQuantity.forEach((el,index) => {
             el.addEventListener('input', item => {
-                let value = item.target.value;
-                console.log(item);
-                Livewire.emit('productQuantityChangued', [value,id]);
+                let quantityProduct = item.target.value;
+                let idProduct = productsRowsId[index].id;
+                Livewire.emit('productQuantityChangued', quantityProduct,idProduct);
                 console.info("hecho :D");
             })
         })

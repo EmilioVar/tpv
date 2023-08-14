@@ -8,6 +8,8 @@ use Livewire\Component;
 class ListTpv extends Component
 {
     public $productsTpv;
+    public $quantityProduct;
+    public $idProduct;
 
     protected $listeners = ['productSelect' => 'updateProductsInTable', 'tableSelected' => 'updateProductsInTable', 'productQuantityChangued' => 'productQuantityChangued'];
 
@@ -16,8 +18,12 @@ class ListTpv extends Component
         $this->productsTpv = Table::find(session('tableSelected'))->products;
     }
 
-    public function productQuantityChangued($value,$id) {
-        /* dd($id); */
+    public function productQuantityChangued($quantityProduct,$idProduct) {
+        $pivotTable = Table::find(session('tableSelected'))
+        ->products()
+        ->where('product_id', $idProduct)
+        ->first()
+        ->pivot->update(['quantity' => $quantityProduct]);
     }
 
     public function productIncrement($productId)
