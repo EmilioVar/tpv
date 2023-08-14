@@ -9,12 +9,12 @@
             <livewire:keyboard />
         </div>
         <!-- groups -->
-        <div id="groups" class="bg-green-400 h-[50vh] col-span-6">
+        <div id="groups" class="bg-green-400 h-[50vh] col-span-4">
             <h1 class="">groups</h1>
             <livewire:groups.group-selector :groups="$groups" />
         </div>
         <!-- products -->
-        <div id="products" class="bg-orange-400 h-[50vh] col-span-3">
+        <div id="products" class="bg-orange-400 h-[50vh] col-span-5">
             <h1 class="">products</h1>
             <livewire:products.product-selector :products="$products" />
         </div>
