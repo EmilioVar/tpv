@@ -33,7 +33,7 @@
                 <td class="px-6 py-4 border-2">
                     <p type="number" class="quantity rounded-md" value="{{ $productTpv->pivot->quantity }}">{{ $productTpv->pivot->quantity }}</p>
                 </td>
-                <td class="px-6 py-4 flex">
+                <td class="px-6 py-4 flexgi">
                     <button wire:click="productIncrement({{ $productTpv->id }})" class="border-2 border-green-500 flex items-center justify-center m-1 w-7 h-7 text-xl bg-green-200">+</button>
                     <button wire:click="productDecrement({{ $productTpv->id }})" class="border-2 border-red-500 flex items-center justify-center m-1 w-7 h-7 text-xl bg-red-200">-</button>
                     <button wire:click="productRemove({{ $productTpv->id }})" class="border-2 border-red-700 flex items-center justify-center m-1 w-7 h-7 text-xl bg-red-500 text-white">el</button>
