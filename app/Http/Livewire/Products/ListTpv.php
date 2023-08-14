@@ -9,11 +9,15 @@ class ListTpv extends Component
 {
     public $productsTpv;
 
-    protected $listeners = ['productSelect' => 'updateProductsInTable', 'tableSelected' => 'updateProductsInTable'];
+    protected $listeners = ['productSelect' => 'updateProductsInTable', 'tableSelected' => 'updateProductsInTable', 'productQuantityChangued' => 'productQuantityChangued'];
 
     public function updateProductsInTable()
     {
         $this->productsTpv = Table::find(session('tableSelected'))->products;
+    }
+
+    public function productQuantityChangued($value,$id) {
+        /* dd($id); */
     }
 
     public function productIncrement($productId)

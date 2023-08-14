@@ -81,5 +81,17 @@
                 block: 'end'
             });
         });
+
+    document.addEventListener('livewire:load', function () {
+        let productsRows = document.querySelectorAll('tr td .quantity')
+        productsRows.forEach((el,index) => {
+            el.addEventListener('input', item => {
+                let value = item.target.value;
+                console.log(item);
+                Livewire.emit('productQuantityChangued', [value,id]);
+                console.info("hecho :D");
+            })
+        })
+    });
     </script>
 </x-layout>

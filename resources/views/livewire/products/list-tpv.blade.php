@@ -25,13 +25,13 @@
                     {{ $productTpv->id }}
                 </th>
                 <td class="px-6 py-4">
-                    <input type="text" class="rounded-md" value="{{ $productTpv->name }}">
+                    <input type="text" class="rounded-md name" value="{{ $productTpv->name }}">
                 </td>
                 <td class="px-6 py-4">
                     <input class="w-1/3 rounded-md" step="0.5" type="number" value="{{ $productTpv->price }}">
                 </td>
                 <td class="px-6 py-4">
-                    <input type="number" class="w-1/3 rounded-md" value="{{ $productTpv->pivot->quantity }}">
+                    <input type="number" class="quantity w-1/3 rounded-md" value="{{ $productTpv->pivot->quantity }}">
 
                 </td>
                 <td class="px-6 py-4 flex">
