@@ -2,17 +2,33 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Table;
 use Livewire\Component;
 
 class Keyboard extends Component
 {
-    public $inputKeyboard = 0;
+    public $inputKeyboard = "";
 
-    protected $listeners = ['eventoDesdeJS' => 'keyPressed'];
+    protected $listeners = ['eventoDesdeJS' => 'keyPressed',
+    'incrementProductKeyboard' => 'incrementProductInKeyboard',
+];
 
     public function keyPressed($key) {
         $this->inputKeyboard .= $key;
     }
+
+    public function incrementProductInKeyboard($productId,$quantity) {
+        $pivotTable = Table::find(session('tableSelected'))
+        ->products()
+        ->where('product_id', $productId)
+        ->first()
+        ->pivot->update(['quantity' => $quantity]);
+
+        $this->inputKeyboard = "";
+
+        $this->emit('productIncrementKeyboard');
+    }
+
     public function render()
     {
         return view('livewire.keyboard');

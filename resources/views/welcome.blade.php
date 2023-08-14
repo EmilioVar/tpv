@@ -100,7 +100,18 @@
             });
         });
 
-        
+        const incrementKeyboard = document.querySelector('.incrementkeyboard');
+
+        incrementKeyboard.addEventListener('click', (el) => {
+            if(!document.querySelector('.selected-row')) {
+                alert("no hay nada seleccionado!")
+            }
+
+            let inputKeyboard = document.querySelector('.inputKeyboard').value;
+            let productSelected = document.querySelector('.selected-row').children[0].innerHTML;
+            Livewire.emit('incrementProductKeyboard', productSelected, inputKeyboard);
+
+        })
 
     </script>
 </x-layout>
