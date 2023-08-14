@@ -6,7 +6,7 @@
         </div>
         <!-- keyboard -->
         <div id="keyboard" class="bg-blue-400 h-[calc(50vh-2.75rem)] col-span-3">
-            <h1 class="">keyboard</h1>
+            <livewire:keyboard />
         </div>
         <!-- groups -->
         <div id="groups" class="bg-green-400 h-[50vh] col-span-6">
@@ -81,5 +81,13 @@
                 block: 'end'
             });
         });
+
+        let keyboardButtons = document.querySelectorAll('.btnKeyboard');
+
+        keyboardButtons.forEach((el,i) => {
+            el.addEventListener('click', function () {
+            Livewire.emit('eventoDesdeJS',el.innerHTML);
+    });
+        }) 
     </script>
 </x-layout>
