@@ -91,26 +91,35 @@
         })
 
         let rowItems = document.querySelectorAll('.rowItem');
-            rowItems.forEach(row => {
-                row.addEventListener('click', () => {
+        rowItems.forEach(row => {
+            row.addEventListener('click', () => {
+                if (row.classList.contains('selected-row')) {
+                    row.classList.remove('selected-row');
+                } else {
                     rowItems.forEach(r => r.classList.remove('selected-row'));
                     row.classList.add('selected-row');
-                    let rowSelected = document.querySelector('.selected-row')
-                });
+                }
             });
-        
+        });
+
         window.addEventListener('renderSelectItemInProuctsTpv', event => {
             let rowItems = document.querySelectorAll('.rowItem');
             rowItems.forEach(row => {
                 row.addEventListener('click', () => {
-                    rowItems.forEach(r => r.classList.remove('selected-row'));
+                    if (row.classList.contains('selected-row')) {
+                        row.classList.remove('selected-row');
+                    } else {
+                        rowItems.forEach(r => r.classList.remove('selected-row'));
+                        row.classList.add('selected-row');
+                    }
+                    /* rowItems.forEach(r => r.classList.remove('selected-row'));
                     row.classList.add('selected-row');
-                    let rowSelected = document.querySelector('.selected-row')
+                    let rowSelected = document.querySelector('.selected-row') */
                 });
             });
             console.log(rowItems)
         })
-        
+
 
         // INCREMENT KEYBOARD
         const incrementKeyboard = document.querySelector('.incrementkeyboard');
