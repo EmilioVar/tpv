@@ -19,15 +19,13 @@
             <livewire:products.product-selector :products="$products" />
         </div>
         <!-- options -->
-        <div id="options" class="bg-red-400 col-span-1 row-span-full p-3">
+        <div id="options" class="bg-red-400 col-span-1 row-span-full p-3 flex justify-center">
             <div>
-                <h1 class="text-xl text-center pb-2">Mesas</h1>
-
                 <!-- Modal toggle -->
                 <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="block w-20 h-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="button">
-                    Toggle modal
+                    MESAS
                 </button>
 
                 <!-- Main modal -->
@@ -122,9 +120,10 @@
         })
 
 
-        // INCREMENT/PRICE KEYBOARD
+        // INCREMENT/PRICE/DTO KEYBOARD
         const incrementKeyboard = document.querySelector('.incrementKeyboard');
         const priceKeyboard = document.querySelector('.priceKeyboard');
+        const dtoKeyboard = document.querySelector('.dtoKeyboard');
 
         incrementKeyboard.addEventListener('click', (el) => {
             if (!document.querySelector('.selected-row')) {
@@ -144,6 +143,16 @@
             let inputKeyboard = document.querySelector('.inputKeyboard').value;
             let productSelected = document.querySelector('.selected-row').children[0].innerHTML;
             Livewire.emit('priceProductKeyboard', productSelected, inputKeyboard);
+        })
+
+        dtoKeyboard.addEventListener('click', (el) => {
+            if (!document.querySelector('.selected-row')) {
+                alert("no hay nada seleccionado!")
+            }
+            let inputKeyboard = document.querySelector('.inputKeyboard').value;
+            let productSelected = document.querySelector('.selected-row').children[0].innerHTML;
+            let priceProduct = document.querySelector('.selected-row .priceProduct').getAttribute('value');
+            Livewire.emit('dtoProductKeyboard', inputKeyboard, productSelected, priceProduct);
         })
         
     </script>

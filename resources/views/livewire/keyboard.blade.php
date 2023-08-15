@@ -9,11 +9,11 @@
     <button class="col-span-1 border btnKeyboard flex justify-center items-center text-3xl font-bold row-start-4">3</button>
     <button class="col-span-1 border btnKeyboard flex justify-center items-center text-3xl font-bold row-start-4">2</button>
     <button class="col-span-1 border btnKeyboard flex justify-center items-center text-3xl font-bold row-start-4">1</button>
-    <button class="col-span-1 border {{-- hacer btn para limpiar numeros --}} flex justify-center items-center text-xl font-bold row-start-5">C</button>
+    <button wire:click="clearInputKeyboard" class="col-span-1 border flex justify-center items-center text-xl font-bold row-start-5 bg-red-500 text-white">C</button>
     <button class="col-span-1 border btnKeyboard flex justify-center items-center text-3xl font-bold row-start-5">0</button>
     <button class="col-span-1 border btnKeyboard flex justify-center items-center text-3xl font-bold row-start-5">.</button>
     <button class="incrementKeyboard border flex justify-center items-center text-xl font-bold">cantidad</button>
-    <button class="priceKeyboard flex justify-center items-center text-xl font-bold">precio</button>
-    <button>accion3</button>
-    <button>accion4</button>
+    <button class="priceKeyboard border flex justify-center items-center text-xl font-bold">precio</button>
+    <button class="dtoKeyboard border flex justify-center items-center text-xl font-bold">DTO</button>
+    <button class="border">accion4</button>
 </div>

@@ -13,7 +13,12 @@ class Keyboard extends Component
         'eventoDesdeJS' => 'keyPressed',
         'incrementProductKeyboard' => 'incrementProductInKeyboard',
         'priceProductKeyboard' => 'priceProductInKeyboard',
+        'dtoProductKeyboard' => 'dtoProductInKeyboard',
     ];
+
+    public function clearInputKeyboard() {
+        $this->inputKeyboard = '';
+    }
 
     public function keyPressed($key)
     {
@@ -45,6 +50,24 @@ class Keyboard extends Component
 
         $this->emit('productIncrementKeyboard');
     }
+
+    public function dtoProductInKeyboard($inputKeyboard, $productId, $originalPrice)
+    {
+
+        $discount = (trim($originalPrice) * $inputKeyboard) / 100;
+        $priceWithDiscount = $originalPrice - $discount;
+
+        $pivotTable = Table::find(session('tableSelected'))
+            ->products()
+            ->where('product_id', $productId)
+            ->first()
+            ->pivot->update(['price' => $priceWithDiscount]);
+
+        $this->inputKeyboard = '';
+
+        $this->emit('productIncrementKeyboard');
+    }
+
 
     public function render()
     {
