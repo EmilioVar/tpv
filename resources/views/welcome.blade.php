@@ -91,6 +91,7 @@
         })
 
         let rowItems = document.querySelectorAll('.rowItem');
+        
         rowItems.forEach(row => {
             row.addEventListener('click', () => {
                 if (row.classList.contains('selected-row')) {
@@ -121,8 +122,9 @@
         })
 
 
-        // INCREMENT KEYBOARD
-        const incrementKeyboard = document.querySelector('.incrementkeyboard');
+        // INCREMENT/PRICE KEYBOARD
+        const incrementKeyboard = document.querySelector('.incrementKeyboard');
+        const priceKeyboard = document.querySelector('.priceKeyboard');
 
         incrementKeyboard.addEventListener('click', (el) => {
             if (!document.querySelector('.selected-row')) {
@@ -132,7 +134,17 @@
             let inputKeyboard = document.querySelector('.inputKeyboard').value;
             let productSelected = document.querySelector('.selected-row').children[0].innerHTML;
             Livewire.emit('incrementProductKeyboard', productSelected, inputKeyboard);
-
         })
+
+        priceKeyboard.addEventListener('click', (el) => {
+            if (!document.querySelector('.selected-row')) {
+                alert("no hay nada seleccionado!")
+            }
+
+            let inputKeyboard = document.querySelector('.inputKeyboard').value;
+            let productSelected = document.querySelector('.selected-row').children[0].innerHTML;
+            Livewire.emit('priceProductKeyboard', productSelected, inputKeyboard);
+        })
+        
     </script>
 </x-layout>

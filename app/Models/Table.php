@@ -12,7 +12,7 @@ class Table extends Model
 
     public function products(): BelongsToMany  {
         return $this->belongsToMany(Product::class, 'tables_products')
-                    ->withPivot('quantity')
+                    ->withPivot('quantity','price')
                     ->withTimestamps();
     }
 }

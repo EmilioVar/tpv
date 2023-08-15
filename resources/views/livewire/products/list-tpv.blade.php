@@ -28,7 +28,7 @@
                 <p type="text" class="rounded-md name" value="{{ $productTpv->name }}">{{ $productTpv->name }}</p>
             </td>
             <td class="px-6 py-4 border-2">
-                <p class=" rounded-md" step="0.5" type="number" value="{{ $productTpv->price }}">{{ $productTpv->price }}</p>
+                <p class=" rounded-md" step="0.5" type="number" value="{{ $productTpv->pivot->price ? $productTpv->pivot->price : $productTpv->price }}">{{ $productTpv->pivot->price ? $productTpv->pivot->price : $productTpv->price }}</p>
             </td>
             <td class="px-6 py-4 border-2">
                 <p type="number" class="quantity rounded-md" value="{{ $productTpv->pivot->quantity }}">{{ $productTpv->pivot->quantity }}</p>

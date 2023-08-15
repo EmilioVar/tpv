@@ -33,6 +33,7 @@ class ProductSelector extends Component
         }
 
         $this->emit('productSelect');
+        $this->dispatchBrowserEvent('renderSelectItemInProuctsTpv',);
     }
 
     public function render()
