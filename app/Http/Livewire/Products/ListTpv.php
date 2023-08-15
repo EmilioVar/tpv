@@ -15,6 +15,7 @@ class ListTpv extends Component
     'tableSelected' => 'updateProductsInTable', 
     'productQuantityChangued' => 'productQuantityChangued',
     'productIncrementKeyboard' => 'renderizame',
+    'deletedAllProductsInCurrentTable' => 'renderizame',
 ];
 
     public function updateProductsInTable()

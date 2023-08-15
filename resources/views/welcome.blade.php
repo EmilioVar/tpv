@@ -19,7 +19,8 @@
             <livewire:products.product-selector :products="$products" />
         </div>
         <!-- options -->
-        <div id="options" class="bg-red-400 col-span-1 row-span-full p-3 flex justify-center">
+        <div id="options" class="bg-red-400 col-span-1 row-span-full p-3 flex items-center justify-start flex-col">
+            <!-- tables -->
             <div>
                 <!-- Modal toggle -->
                 <button data-modal-target="defaultModal" data-modal-toggle="defaultModal"
@@ -27,7 +28,6 @@
                     type="button">
                     MESAS
                 </button>
-
                 <!-- Main modal -->
                 <div id="defaultModal" tabindex="-1" aria-hidden="true"
                     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -64,9 +64,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
+            <!-- delete table -->
+            <livewire:tables.delete-table />
         </div>
     </div>
     <script type="module">
