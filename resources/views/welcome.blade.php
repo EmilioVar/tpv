@@ -91,19 +91,32 @@
         })
 
         let rowItems = document.querySelectorAll('.rowItem');
-
-        rowItems.forEach(row => {
-            row.addEventListener('click', () => {
-                rowItems.forEach(r => r.classList.remove('selected-row'));
-                row.classList.add('selected-row');
-                let rowSelected = document.querySelector('.selected-row')
+            rowItems.forEach(row => {
+                row.addEventListener('click', () => {
+                    rowItems.forEach(r => r.classList.remove('selected-row'));
+                    row.classList.add('selected-row');
+                    let rowSelected = document.querySelector('.selected-row')
+                });
             });
-        });
+        
+        window.addEventListener('renderSelectItemInProuctsTpv', event => {
+            let rowItems = document.querySelectorAll('.rowItem');
+            rowItems.forEach(row => {
+                row.addEventListener('click', () => {
+                    rowItems.forEach(r => r.classList.remove('selected-row'));
+                    row.classList.add('selected-row');
+                    let rowSelected = document.querySelector('.selected-row')
+                });
+            });
+            console.log(rowItems)
+        })
+        
 
+        // INCREMENT KEYBOARD
         const incrementKeyboard = document.querySelector('.incrementkeyboard');
 
         incrementKeyboard.addEventListener('click', (el) => {
-            if(!document.querySelector('.selected-row')) {
+            if (!document.querySelector('.selected-row')) {
                 alert("no hay nada seleccionado!")
             }
 
@@ -112,6 +125,5 @@
             Livewire.emit('incrementProductKeyboard', productSelected, inputKeyboard);
 
         })
-
     </script>
 </x-layout>

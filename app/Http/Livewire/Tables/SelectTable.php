@@ -26,7 +26,7 @@ class SelectTable extends Component
 
         $this->emit('tableSelected');
     }
-
+    
     public function render()
     {
         return view('livewire.tables.select-table');

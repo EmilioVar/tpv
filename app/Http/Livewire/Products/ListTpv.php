@@ -20,6 +20,7 @@ class ListTpv extends Component
     public function updateProductsInTable()
     {
         $this->productsTpv = Table::find(session('tableSelected'))->products;
+        $this->dispatchBrowserEvent('renderSelectItemInProuctsTpv',);
     }
 
     public function productQuantityChangued($quantityProduct,$idProduct) {
