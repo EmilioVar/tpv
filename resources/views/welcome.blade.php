@@ -19,7 +19,7 @@
             <livewire:products.product-selector :products="$products" />
         </div>
         <!-- options -->
-        <div id="options" class="bg-red-400 col-span-1 row-span-full p-3 flex items-center justify-start flex-col">
+        <div id="options" class="bg-red-400 col-span-1 col-start-10 row-span-full p-3 flex items-center justify-start flex-col">
             <!-- tables -->
             <div>
                 <!-- Modal toggle -->
