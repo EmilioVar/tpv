@@ -69,6 +69,7 @@
             <livewire:tables.delete-table />
         </div>
     </div>
+    <x-slot:script>
     <script type="module">
         Livewire.on('productSelect', function() {
             console.log("si")
@@ -101,8 +102,13 @@
             });
         });
 
+        /* TODO: Hay que conseguir recargar el listTpv sin tener que refrescar la página
+         * y que permita seleccionar los elementos sin memorizar las elecciones anteriores
+        */
+        
         window.addEventListener('renderSelectItemInProuctsTpv', event => {
-            let rowItems = document.querySelectorAll('.rowItem');
+            document.location.reload();
+            /* let rowItems = document.querySelectorAll('.rowItem');
             rowItems.forEach(row => {
                 row.addEventListener('click', () => {
                     if (row.classList.contains('selected-row')) {
@@ -111,12 +117,9 @@
                         rowItems.forEach(r => r.classList.remove('selected-row'));
                         row.classList.add('selected-row');
                     }
-                    /* rowItems.forEach(r => r.classList.remove('selected-row'));
-                    row.classList.add('selected-row');
-                    let rowSelected = document.querySelector('.selected-row') */
+                    console.log(rowItems)
                 });
-            });
-            console.log(rowItems)
+            }); */
         })
 
 
@@ -156,4 +159,5 @@
         })
         
     </script>
+    </x-slot>
 </x-layout>

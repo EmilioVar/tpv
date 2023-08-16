@@ -14,5 +14,6 @@
     </nav>
     {{ $slot }}
     @livewireScripts
+    {{ $script }}
 </body>
 </html>
