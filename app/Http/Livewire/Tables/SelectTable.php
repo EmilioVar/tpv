@@ -25,6 +25,7 @@ class SelectTable extends Component
         $table->save();
 
         $this->emit('tableSelected');
+        $this->dispatchBrowserEvent('tableSelected');
     }
     
     public function render()

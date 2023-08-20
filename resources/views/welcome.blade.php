@@ -19,7 +19,8 @@
             <livewire:products.product-selector :products="$products" />
         </div>
         <!-- options -->
-        <div id="options" class="bg-red-400 col-span-1 col-start-10 row-span-full p-3 flex items-center justify-start flex-col">
+        <div id="options"
+            class="bg-red-400 col-span-1 col-start-10 row-span-full p-3 flex items-center justify-start flex-col">
             <!-- tables -->
             <div>
                 <!-- Modal toggle -->
@@ -101,14 +102,14 @@
                     }
                 });
             });
-            
+
             window.addEventListener('renderSelectItemInProuctsTpv', event => {
                 let rowItems = document.querySelectorAll('.rowItem');
                 rowItems.forEach(row => {
                     row.addEventListener('click', () => {
                         console.log(row);
-                            rowItems.forEach(r => r.classList.remove('selected-row'));
-                            row.classList.add('selected-row');
+                        rowItems.forEach(r => r.classList.remove('selected-row'));
+                        row.classList.add('selected-row');
                         console.log(rowItems)
                     });
                 });
