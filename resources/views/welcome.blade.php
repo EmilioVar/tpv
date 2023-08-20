@@ -101,25 +101,17 @@
                     }
                 });
             });
-
-            /* TODO: Hay que conseguir recargar el listTpv sin tener que refrescar la página
-             * y que permita seleccionar los elementos sin memorizar las elecciones anteriores
-             */
-
+            
             window.addEventListener('renderSelectItemInProuctsTpv', event => {
-                document.location.reload();
-                /* let rowItems = document.querySelectorAll('.rowItem');
+                let rowItems = document.querySelectorAll('.rowItem');
                 rowItems.forEach(row => {
                     row.addEventListener('click', () => {
-                        if (row.classList.contains('selected-row')) {
-                            row.classList.remove('selected-row');
-                        } else {
+                        console.log(row);
                             rowItems.forEach(r => r.classList.remove('selected-row'));
                             row.classList.add('selected-row');
-                        }
                         console.log(rowItems)
                     });
-                }); */
+                });
             })
 
 
