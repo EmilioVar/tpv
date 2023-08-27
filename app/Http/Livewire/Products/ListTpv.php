@@ -41,6 +41,7 @@ class ListTpv extends Component
             ->pivot->increment('quantity');
 
         $this->productsTpv = Table::find(session('tableSelected'))->products;
+        $this->emit('updateTotalAmount');
     }
 
     public function productDecrement($productId)
@@ -59,6 +60,7 @@ class ListTpv extends Component
         }
         
         $this->productsTpv = Table::find(session('tableSelected'))->products;
+        $this->emit('updateTotalAmount');
     }
 
     public function productRemove($productId) {
@@ -70,6 +72,7 @@ class ListTpv extends Component
         $product->tables()->detach($productId);
 
         $this->productsTpv = Table::find(session('tableSelected'))->products;
+        $this->emit('updateTotalAmount');
     }
 
     public function renderizame() {

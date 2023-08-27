@@ -13,6 +13,7 @@
         <p class="text-xl bg-blue-200 py-1 px-2 rounded-xl">navbar. Mesa: <livewire:display-table-selected /></p>
     </nav>
     {{ $slot }}
+    <livewire:total-price-amount />
     @livewireScripts
     {{ $script }}
 </body>

@@ -23,8 +23,9 @@ class SelectTable extends Component
         Session::put('tableSelected', $tableId);
         $table->selected = 1;
         $table->save();
-
+        
         $this->emit('tableSelected');
+        $this->emit('updateTotalAmount');
         $this->dispatchBrowserEvent('tableSelected');
     }
     

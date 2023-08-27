@@ -20,6 +20,7 @@ class ProductSelector extends Component
     public function productSelected($productId)
     {
         $table = Table::find(session('tableSelected'));
+        $product = Product::find($productId);
         
         $existingProduct = $table
             ->products()
@@ -29,10 +30,11 @@ class ProductSelector extends Component
         if ($existingProduct) {
             $existingProduct->pivot->increment('quantity');
         } else {
-            $table->products()->attach($productId, ['quantity' => 1]);
+            $table->products()->attach($productId, ['quantity' => 1,'price'=>$product->price]);
         }
 
         $this->emit('productSelect');
+        $this->emit('updateTotalAmount');
         $this->dispatchBrowserEvent('renderSelectItemInProuctsTpv',);
     }
 

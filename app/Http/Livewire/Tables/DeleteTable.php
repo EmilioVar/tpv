@@ -12,6 +12,7 @@ class DeleteTable extends Component
 
         $allProductsTable = Table::find($sessionTable)->products()->detach();
         $this->emit('deletedAllProductsInCurrentTable');
+        $this->emit('updateTotalAmount');
     }
 
     public function render()

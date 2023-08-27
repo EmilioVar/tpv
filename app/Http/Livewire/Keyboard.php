@@ -36,6 +36,7 @@ class Keyboard extends Component
         $this->inputKeyboard = '';
 
         $this->emit('productIncrementKeyboard');
+        $this->emit('updateTotalAmount');
     }
 
     public function priceProductInKeyboard($productId, $price)
@@ -49,6 +50,7 @@ class Keyboard extends Component
         $this->inputKeyboard = '';
 
         $this->emit('productIncrementKeyboard');
+        $this->emit('updateTotalAmount');
     }
 
     public function dtoProductInKeyboard($inputKeyboard, $productId, $originalPrice)
@@ -66,6 +68,7 @@ class Keyboard extends Component
         $this->inputKeyboard = '';
 
         $this->emit('productIncrementKeyboard');
+        $this->emit('updateTotalAmount');
     }
 
 
