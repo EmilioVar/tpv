@@ -19,23 +19,27 @@ class ProductSelector extends Component
 
     public function productSelected($productId)
     {
-        $table = Table::find(session('tableSelected'));
-        $product = Product::find($productId);
-        
-        $existingProduct = $table
-            ->products()
-            ->where('product_id', $productId)
-            ->first();
-
-        if ($existingProduct) {
-            $existingProduct->pivot->increment('quantity');
+        if(session()->has('tableSelected')) {
+            $table = Table::find(session('tableSelected'));
+            $product = Product::find($productId);
+            
+            $existingProduct = $table
+                ->products()
+                ->where('product_id', $productId)
+                ->first();
+    
+            if ($existingProduct) {
+                $existingProduct->pivot->increment('quantity');
+            } else {
+                $table->products()->attach($productId, ['quantity' => 1,'price'=>$product->price]);
+            }
+    
+            $this->emit('productSelect');
+            $this->emit('updateTotalAmount');
+            $this->dispatchBrowserEvent('renderSelectItemInProuctsTpv',);
         } else {
-            $table->products()->attach($productId, ['quantity' => 1,'price'=>$product->price]);
+            dd('seleccione una mesa!');
         }
-
-        $this->emit('productSelect');
-        $this->emit('updateTotalAmount');
-        $this->dispatchBrowserEvent('renderSelectItemInProuctsTpv',);
     }
 
     public function render()

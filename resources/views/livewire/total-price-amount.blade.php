@@ -1,3 +1,3 @@
-<div>
-    total amount{{ $total }}
-</div>
+<span>
+    {{ $total }}
+</span>

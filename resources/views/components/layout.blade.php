@@ -9,11 +9,16 @@
     @livewireStyles
 </head>
 <body>
-    <nav class="h-11 flex justify-center items-center bg-gray-500">
-        <p class="text-xl bg-blue-200 py-1 px-2 rounded-xl">navbar. Mesa: <livewire:display-table-selected /></p>
+    <nav class="h-11 flex justify-between items-center bg-gray-500">
+        <div>
+            <!-- table selected -->
+            <p class="text-xl bg-blue-200 py-1 px-2 ml-5 rounded-xl">navbar. Mesa: <livewire:display-table-selected /> </p>
+        </div>
+        <div>
+            <p class="text-xl bg-red-200 py-1 px-2 mr-5 rounded-xl">Total: <livewire:total-price-amount /></p>
+        </div>
     </nav>
     {{ $slot }}
-    <livewire:total-price-amount />
     @livewireScripts
     {{ $script }}
 </body>
