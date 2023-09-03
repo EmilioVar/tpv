@@ -8,6 +8,7 @@ use Livewire\Component;
 class TotalPriceAmount extends Component
 {
     protected $listeners = ['updateTotalAmount' => 'render'];
+
     public function render()
     {
         if(session()->has('tableSelected')) {
@@ -17,10 +18,12 @@ class TotalPriceAmount extends Component
     
             $total = $products->reduce(function ($carry, $product) {
                 return $carry + $product->pivot->price * $product->pivot->quantity;
-            }, 0);
+            }, 0);    
         } else {
             $total = 0;
         }
+        
+        $this->emit('totalAmountChangeToTicket', $total);
 
         return view('livewire.total-price-amount', compact('total'));
     }

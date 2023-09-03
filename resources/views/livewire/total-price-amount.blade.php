@@ -1,3 +1,3 @@
 <span>
-    {{ $total }}
+    {{ $total }}€
 </span>
