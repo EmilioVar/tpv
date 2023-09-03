@@ -36,7 +36,9 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        $products = json_decode($ticket->products, true);
+
+        return view('tickets.show', compact('ticket','products'));
     }
 
     /**

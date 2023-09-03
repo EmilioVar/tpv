@@ -32,7 +32,7 @@ class create extends Component
 
         $t->save();
 
-        return true;
+        return to_route('tickets.show', ['ticket' => $t]);
         
     }
 

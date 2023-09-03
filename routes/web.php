@@ -22,6 +22,8 @@ Route::get('/', function () {
     $tables = Table::all();
 
     return view('welcome', compact('groups', 'products','productsTpv', 'tables'));
-});
+})->name('index');
 
 Route::resource('tickets', TicketController::class);
+
+Route::get('tickets/{ticket}/show', [TicketController::class, 'show'])->name('tickets.show');
